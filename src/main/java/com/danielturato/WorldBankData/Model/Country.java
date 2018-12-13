@@ -1,14 +1,15 @@
 package com.danielturato.WorldBankData.Model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.text.DecimalFormat;
 
 @Entity
 public class Country {
 
-    @Id()
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String code;
+    @Id
+    private String code = //setCode();
 
     @Column(length = 32)
     private String name;
@@ -36,12 +37,18 @@ public class Country {
         return String.format("%-35s%-25s%s", name, internetUsers, adultLiteracyRate);
     }
 
-    public String getCode() {
-        return code;
+    public String setCode() {
+        for(int i = 0; i < name.length(); i++) {
+            code += name.charAt(i);
+            if (i == 2) {
+                break;
+            }
+        }
+        return code.toUpperCase();
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public String getCode() {
+        return code;
     }
 
     public String getName() {
@@ -70,11 +77,14 @@ public class Country {
 
     public static class CountryBuilder {
         private String name;
+        private String code;
         private Double internetUsers;
         private Double adultLiteracyRate;
 
         public CountryBuilder(String name) {
             this.name = name;
+            String code = "";
+
         }
 
         public CountryBuilder withInternetUsers(Double internetUsers) {

@@ -35,7 +35,7 @@ public class Application {
                 input.next();
             }
             option = input.nextInt();
-            validateInput(option);
+            validateInput(option, input);
         } while (option != 6);
         System.exit(0);
     }
@@ -50,7 +50,7 @@ public class Application {
         System.out.println("6)     Quit");
     }
 
-    private static void validateInput(int option) {
+    private static void validateInput(int option, Scanner scanner) {
         switch (option) {
             case 1:
                 displayCountries();
@@ -58,6 +58,7 @@ public class Application {
             case 2:
                 break;
             case 3:
+                addCountry(getCountryInput(scanner));
                 break;
             case 4:
                 break;
@@ -94,16 +95,25 @@ public class Application {
         return countries;
     }
 
+    private static void addCountry(Country country) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(country);
+        session.getTransaction().commit();
+        session.close();
+    }
+
     private static Country getCountryInput(Scanner scanner) {
-        String name = getStringInput(scanner, "Enter the name ");
+        String name = getStringInput(scanner, "Enter the name: ");
+        System.out.println(name);
         CountryBuilder countryBuilder = new CountryBuilder(name);
         if (getStringInput(scanner, "Would you like to add the internet user stat (y) ? : ")
-                                            .equalsIgnoreCase("y")) {
+                                            .trim().equalsIgnoreCase("y")) {
             countryBuilder.withInternetUsers(getDoubleInput(scanner, "Enter the internet users stat: "));
         }
 
         if (getStringInput(scanner, "Would you like to add the adult literacy stat (y) ? : ")
-                .equalsIgnoreCase("y")) {
+                .trim().equalsIgnoreCase("y")) {
             countryBuilder.withInternetUsers(getDoubleInput(scanner, "Enter the adult literacy stat: "));
         }
 
@@ -112,11 +122,12 @@ public class Application {
 
     private static String getStringInput(Scanner scanner, String message) {
         System.out.printf("%n%s", message);
-        while (!scanner.hasNextLine()) {
-            System.out.println("That's not a correct input. Try again!");
-            scanner.next();
-        }
-        return scanner.nextLine();
+//        while (!scanner.hasNextLine()) {
+//            System.out.println("That's not a correct input. Try again!");
+//            scanner.next();
+//        }
+        String input = scanner.next();
+        return input;
     }
 
     private static Double getDoubleInput(Scanner scanner, String message) {

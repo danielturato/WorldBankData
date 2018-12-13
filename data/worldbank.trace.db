@@ -45,3 +45,65 @@ org.h2.message.DbException: Wrong user name or password [28000-197]
 Caused by: org.h2.jdbc.JdbcSQLException: Wrong user name or password [28000-197]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
 	... 42 more
+2018-12-13 14:26:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "ID" not found; SQL statement:
+insert into Country (id, adultLiteracyRate, code, internetUsers, name) values (null, ?, ?, ?, ?) [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.command.Parser.parseColumn(Parser.java:936)
+	at org.h2.command.Parser.parseColumnList(Parser.java:920)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1258)
+	at org.h2.command.Parser.parseInsert(Parser.java:1222)
+	at org.h2.command.Parser.parsePrepared(Parser.java:431)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1166)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$2.doPrepare(StatementPreparerImpl.java:106)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:172)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareStatement(StatementPreparerImpl.java:108)
+	at org.hibernate.dialect.identity.GetGeneratedKeysDelegate.prepare(GetGeneratedKeysDelegate.java:51)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:39)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3072)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3663)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:359)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:292)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:200)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:131)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:192)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:177)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:709)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:701)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:696)
+	at com.danielturato.WorldBankData.Application.addCountry(Application.java:101)
+	at com.danielturato.WorldBankData.Application.validateInput(Application.java:61)
+	at com.danielturato.WorldBankData.Application.main(Application.java:38)
+2018-12-13 15:55:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "CODE NVARCHAR(3) NOT NULL": "'NULLZZZ' (7)"; SQL statement:
+insert into Country (adultLiteracyRate, internetUsers, name, code) values (?, ?, ?, ?) [22001-197]
+2018-12-13 15:56:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "CODE NVARCHAR(3) NOT NULL": "'NULLZZZ' (7)"; SQL statement:
+insert into Country (adultLiteracyRate, internetUsers, name, code) values (?, ?, ?, ?) [22001-197]
+2018-12-13 15:56:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "CODE NVARCHAR(3) NOT NULL": "'NULLZZZ' (7)"; SQL statement:
+insert into Country (adultLiteracyRate, internetUsers, name, code) values (?, ?, ?, ?) [22001-197]
+2018-12-13 16:02:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "CODE NVARCHAR(3) NOT NULL": "'nullTTE' (7)"; SQL statement:
+insert into Country (adultLiteracyRate, internetUsers, name, code) values (?, ?, ?, ?) [22001-197]
+2018-12-13 16:07:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "CODE NVARCHAR(3) NOT NULL": "'f4921637-9bc0-40bb-8b62-87edfdb0012e' (36)"; SQL statement:
+insert into Country (adultLiteracyRate, internetUsers, name, code) values (?, ?, ?, ?) [22001-197]
