@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 public class Country {
 
     @Id
-    private String code = //setCode();
+    private String code = setCode();
 
     @Column(length = 32)
     private String name;
@@ -77,14 +77,11 @@ public class Country {
 
     public static class CountryBuilder {
         private String name;
-        private String code;
         private Double internetUsers;
         private Double adultLiteracyRate;
 
         public CountryBuilder(String name) {
             this.name = name;
-            String code = "";
-
         }
 
         public CountryBuilder withInternetUsers(Double internetUsers) {
