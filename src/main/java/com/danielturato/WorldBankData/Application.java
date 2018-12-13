@@ -86,15 +86,16 @@ public class Application {
     private static void displayStats() {
         List<Country> countries = fetchAllCountries();
         System.out.printf("%n******WORLD BANK DATA STATS******%n%n");
-        countries = countries.stream()
-                    .filter(c -> (c.getAdultLiteracyRate() != null))
-                    .filter(c -> (c.getInternetUsers() != null))
-                    .collect(Collectors.toList());
         System.out.println(calculateMaxAndMin(countries));
         System.out.println(calculateCorrelation(countries));
     }
 
     private static String calculateCorrelation(List<Country> countries) {
+        countries = countries.stream()
+                .filter(c -> (c.getAdultLiteracyRate() != null))
+                .filter(c -> (c.getInternetUsers() != null))
+                .collect(Collectors.toList());
+
         double sumOfIU = 0, sumOfAL = 0, sumOfIUAL = 0;
         double squareSumOfIU = 0, squareSumOfAL = 0;
 
@@ -125,15 +126,19 @@ public class Application {
         Country maxAdultLiteracyC;
 
         minInternetUserC = countries.stream()
+                            .filter(c -> (c.getInternetUsers() != null))
                             .min(Comparator.comparing(Country::getInternetUsers)).get();
 
         maxInternetUserC = countries.stream()
+                            .filter(c -> (c.getInternetUsers() != null))
                             .max(Comparator.comparing(Country::getInternetUsers)).get();
 
         minAdultLiteracyC = countries.stream()
+                            .filter(c -> (c.getAdultLiteracyRate() != null))
                             .min(Comparator.comparing(Country::getAdultLiteracyRate)).get();
 
         maxAdultLiteracyC = countries.stream()
+                            .filter(c -> (c.getAdultLiteracyRate() != null))
                             .max(Comparator.comparing(Country::getAdultLiteracyRate)).get();
 
         return String.format("Minimum Adult Literacy Country is %s with : %f%n" +

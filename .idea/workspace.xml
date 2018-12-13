@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cffe8f81-e709-4263-a5f1-722b09ecb120" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/danielturato/WorldBankData/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/danielturato/WorldBankData/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/worldbank.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/worldbank.mv.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -51,16 +51,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="1" />
-          <entry key="java" value="7940" />
-          <entry key="txt" value="137" />
+          <entry key="java" value="8098" />
+          <entry key="txt" value="214" />
           <entry key="xml" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="7940" />
-          <entry key="PLAIN_TEXT" value="137" />
+          <entry key="JAVA" value="8098" />
+          <entry key="PLAIN_TEXT" value="214" />
           <entry key="XML" value="80" />
         </counts>
       </usages-collector>
@@ -80,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+            <state relative-caret-position="-244">
+              <caret line="87" column="69" selection-start-line="87" selection-start-column="69" selection-end-line="87" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -492,7 +492,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544734229017" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544734566223" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -548,7 +548,7 @@
       <workItem from="1544703080503" duration="119000" />
       <workItem from="1544703223482" duration="8457000" />
       <workItem from="1544715604945" duration="3979000" />
-      <workItem from="1544727978256" duration="5870000" />
+      <workItem from="1544727978256" duration="6393000" />
     </task>
     <task id="LOCAL-00001" summary="git init v2">
       <created>1544706897742</created>
@@ -592,11 +592,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544731059393</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added so you can vies statistical info on the indicators of countries">
+      <created>1544734303735</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1544734303735</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21548000" />
+    <option name="totallyTimeSpent" value="22071000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -609,6 +616,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4975" visible="true" weight="0.23104435" />
       <window_info id="Structure" order="1" sideWeight="0.5025" side_tool="true" weight="0.23104435" />
@@ -620,7 +628,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44444445" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31111112" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -656,7 +664,8 @@
     <MESSAGE value="Add country option validation" />
     <MESSAGE value="Update to Country" />
     <MESSAGE value="Added the ability to edit &amp; delete countries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the ability to edit &amp; delete countries" />
+    <MESSAGE value="Added so you can vies statistical info on the indicators of countries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added so you can vies statistical info on the indicators of countries" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data/worldbank.trace.db">
@@ -690,8 +699,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+        <state relative-caret-position="-244">
+          <caret line="87" column="69" selection-start-line="87" selection-start-column="69" selection-end-line="87" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
