@@ -12,6 +12,7 @@ import org.hibernate.service.ServiceRegistry;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Application {
@@ -61,8 +62,11 @@ public class Application {
                 addCountry(getCountryInput(scanner));
                 break;
             case 4:
+                editCountry(findCountryByCode(getStringInput(scanner, "Enter the code of the country you want to edit: ")), scanner);
                 break;
             case 5:
+                deleteCountry(findCountryByCode(getStringInput(scanner, "Enter the code for the country: ")));
+                System.out.println("Deleting.....");
                 break;
             case 6:
                 break;
@@ -103,10 +107,61 @@ public class Application {
         session.close();
     }
 
+    private static void updateCountry(Country country) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(country);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    private static Country findCountryByCode(String code) {
+        Session session = sessionFactory.openSession();
+        Country country = session.get(Country.class, code);
+        session.close();
+        return country;
+    }
+
+    private static void deleteCountry(Country country) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(country);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    private static void editCountry(Country country, Scanner scanner) {
+        String response = "";
+        do {
+            response = getStringInput(scanner, "What would you like to edit (name, internetusers, adultliteracy) : ");
+        } while (!(response.equalsIgnoreCase("name") ||
+                   response.equalsIgnoreCase("internetusers") ||
+                   response.equalsIgnoreCase("adultliteracy")));
+        response = response.toLowerCase();
+        switch (response) {
+            case "name":
+                country.setName(getStringInput(scanner, "Enter a new name: "));
+                break;
+            case "internetusers":
+                country.setInternetUsers(getDoubleInput(scanner, "Enter the new Internet User value: "));
+                break;
+            case "adultliteracy":
+                country.setAdultLiteracyRate(getDoubleInput(scanner, "Enter a new Adult Literacy value: "));
+                break;
+            default:
+                System.out.println("Error");
+                break;
+        }
+        updateCountry(country);
+    }
+
     private static Country getCountryInput(Scanner scanner) {
         String name = getStringInput(scanner, "Enter the name: ");
-        System.out.println(name);
-        CountryBuilder countryBuilder = new CountryBuilder(name);
+        String code = "";
+        do {
+            code = getStringInput(scanner, "Enter the code (3 chars): ");
+        } while (!(code.length() == 3));
+        CountryBuilder countryBuilder = new CountryBuilder(name, code);
         if (getStringInput(scanner, "Would you like to add the internet user stat (y) ? : ")
                                             .trim().equalsIgnoreCase("y")) {
             countryBuilder.withInternetUsers(getDoubleInput(scanner, "Enter the internet users stat: "));
@@ -122,10 +177,9 @@ public class Application {
 
     private static String getStringInput(Scanner scanner, String message) {
         System.out.printf("%n%s", message);
-//        while (!scanner.hasNextLine()) {
-//            System.out.println("That's not a correct input. Try again!");
-//            scanner.next();
-//        }
+        while (!scanner.hasNextLine()) {
+            System.out.println("That's not a correct input. Try again!");
+        }
         String input = scanner.next();
         return input;
     }

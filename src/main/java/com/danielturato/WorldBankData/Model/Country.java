@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 public class Country {
 
     @Id
-    private String code = setCode();
+    private String code;
 
     @Column(length = 32)
     private String name;
@@ -26,6 +26,7 @@ public class Country {
         this.name = countryBuilder.name;
         this.internetUsers = countryBuilder.internetUsers;
         this.adultLiteracyRate = countryBuilder.adultLiteracyRate;
+        this.code = countryBuilder.code;
     }
 
     @Override
@@ -37,14 +38,8 @@ public class Country {
         return String.format("%-35s%-25s%s", name, internetUsers, adultLiteracyRate);
     }
 
-    public String setCode() {
-        for(int i = 0; i < name.length(); i++) {
-            code += name.charAt(i);
-            if (i == 2) {
-                break;
-            }
-        }
-        return code.toUpperCase();
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getCode() {
@@ -76,12 +71,14 @@ public class Country {
     }
 
     public static class CountryBuilder {
+        private String code;
         private String name;
         private Double internetUsers;
         private Double adultLiteracyRate;
 
-        public CountryBuilder(String name) {
+        public CountryBuilder(String name, String code) {
             this.name = name;
+            this.code = code;
         }
 
         public CountryBuilder withInternetUsers(Double internetUsers) {
