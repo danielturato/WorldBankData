@@ -11,9 +11,8 @@ import org.hibernate.service.ServiceRegistry;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Application {
 
@@ -57,6 +56,7 @@ public class Application {
                 displayCountries();
                 break;
             case 2:
+                displayStats();
                 break;
             case 3:
                 addCountry(getCountryInput(scanner));
@@ -81,6 +81,69 @@ public class Application {
         System.out.println("Country                            Internet Users           Literacy");
         System.out.println("--------------------------------------------------------------------");
         countries.stream().forEach(System.out::println);
+    }
+
+    private static void displayStats() {
+        List<Country> countries = fetchAllCountries();
+        System.out.printf("%n******WORLD BANK DATA STATS******%n%n");
+        countries = countries.stream()
+                    .filter(c -> (c.getAdultLiteracyRate() != null))
+                    .filter(c -> (c.getInternetUsers() != null))
+                    .collect(Collectors.toList());
+        System.out.println(calculateMaxAndMin(countries));
+        System.out.println(calculateCorrelation(countries));
+    }
+
+    private static String calculateCorrelation(List<Country> countries) {
+        double sumOfIU = 0, sumOfAL = 0, sumOfIUAL = 0;
+        double squareSumOfIU = 0, squareSumOfAL = 0;
+
+        for (int i = 0; i < countries.size(); i++) {
+            Country c = countries.get(i);
+
+            sumOfIU = sumOfIU + c.getInternetUsers();
+            sumOfAL = sumOfAL + c.getAdultLiteracyRate();
+
+            sumOfIUAL = sumOfIUAL + c.getInternetUsers() * c.getAdultLiteracyRate();
+
+            squareSumOfAL = squareSumOfAL + (c.getAdultLiteracyRate() * c.getAdultLiteracyRate());
+            squareSumOfIU = squareSumOfIU + (c.getInternetUsers() * c.getInternetUsers());
+        }
+
+        int n = countries.size();
+
+        float correlation = (float) (n * sumOfIUAL - sumOfAL * sumOfIU) /
+                             (float) (Math.sqrt((n * squareSumOfAL - sumOfAL * sumOfAL) * (n * squareSumOfIU - sumOfIU * sumOfIU)));
+
+        return String.format("Correlation Coefficient for the indicators : %f", correlation);
+    }
+
+    private static String calculateMaxAndMin(List<Country> countries) {
+        Country minInternetUserC;
+        Country maxInternetUserC;
+        Country minAdultLiteracyC;
+        Country maxAdultLiteracyC;
+
+        minInternetUserC = countries.stream()
+                            .min(Comparator.comparing(Country::getInternetUsers)).get();
+
+        maxInternetUserC = countries.stream()
+                            .max(Comparator.comparing(Country::getInternetUsers)).get();
+
+        minAdultLiteracyC = countries.stream()
+                            .min(Comparator.comparing(Country::getAdultLiteracyRate)).get();
+
+        maxAdultLiteracyC = countries.stream()
+                            .max(Comparator.comparing(Country::getAdultLiteracyRate)).get();
+
+        return String.format("Minimum Adult Literacy Country is %s with : %f%n" +
+                             "Minimum Internet Usage Country is %s with : %f%n" +
+                             "Maximum Adult Literacy Country is %s with : %f%n" +
+                             "Maximum Internet Usage Country is %s with : %f%n",
+                             minAdultLiteracyC.getName(), minAdultLiteracyC.getAdultLiteracyRate(),
+                             minInternetUserC.getName(), minInternetUserC.getInternetUsers(),
+                             maxAdultLiteracyC.getName(), maxAdultLiteracyC.getAdultLiteracyRate(),
+                             maxInternetUserC.getName(), maxInternetUserC.getInternetUsers());
     }
 
     private static List<Country> fetchAllCountries() {
