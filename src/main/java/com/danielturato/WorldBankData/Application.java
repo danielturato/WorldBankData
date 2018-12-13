@@ -94,13 +94,38 @@ public class Application {
         return countries;
     }
 
-    private String getStringInput(Scanner scanner, String message) {
-        System.out.println(message);
+    private static Country getCountryInput(Scanner scanner) {
+        String name = getStringInput(scanner, "Enter the name ");
+        CountryBuilder countryBuilder = new CountryBuilder(name);
+        if (getStringInput(scanner, "Would you like to add the internet user stat (y) ? : ")
+                                            .equalsIgnoreCase("y")) {
+            countryBuilder.withInternetUsers(getDoubleInput(scanner, "Enter the internet users stat: "));
+        }
+
+        if (getStringInput(scanner, "Would you like to add the adult literacy stat (y) ? : ")
+                .equalsIgnoreCase("y")) {
+            countryBuilder.withInternetUsers(getDoubleInput(scanner, "Enter the adult literacy stat: "));
+        }
+
+        return countryBuilder.build();
+    }
+
+    private static String getStringInput(Scanner scanner, String message) {
+        System.out.printf("%n%s", message);
         while (!scanner.hasNextLine()) {
             System.out.println("That's not a correct input. Try again!");
             scanner.next();
         }
         return scanner.nextLine();
+    }
+
+    private static Double getDoubleInput(Scanner scanner, String message) {
+        System.out.printf("%n%s", message);
+        while (!scanner.hasNextDouble()) {
+            System.out.println("That's not a correct input. Try again!");
+            scanner.next();
+        }
+        return scanner.nextDouble();
     }
 
 }

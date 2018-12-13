@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cffe8f81-e709-4263-a5f1-722b09ecb120" name="Default Changelist" comment="String validation">
+    <list default="true" id="cffe8f81-e709-4263-a5f1-722b09ecb120" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java" afterDir="false" />
     </list>
@@ -49,7 +49,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="1" />
-          <entry key="java" value="3053" />
+          <entry key="java" value="3494" />
           <entry key="txt" value="28" />
           <entry key="xml" value="80" />
         </counts>
@@ -57,7 +57,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="3053" />
+          <entry key="JAVA" value="3494" />
           <entry key="PLAIN_TEXT" value="28" />
           <entry key="XML" value="80" />
         </counts>
@@ -78,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="385">
+              <caret line="114" column="38" lean-forward="true" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Model/Country.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="-138">
               <caret line="32" column="83" lean-forward="true" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -506,7 +506,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544708437473" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544708462265" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -560,7 +560,7 @@
       <updated>1544694897710</updated>
       <workItem from="1544694901989" duration="3123000" />
       <workItem from="1544703080503" duration="119000" />
-      <workItem from="1544703223482" duration="5118000" />
+      <workItem from="1544703223482" duration="5466000" />
     </task>
     <task id="LOCAL-00001" summary="git init v2">
       <created>1544706897742</created>
@@ -569,11 +569,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544706897742</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="String validation">
+      <created>1544708466464</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544708466464</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8360000" />
+    <option name="totallyTimeSpent" value="8708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="811" extended-state="6" />
@@ -644,7 +651,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Model/Country.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
+        <state relative-caret-position="-138">
           <caret line="32" column="83" lean-forward="true" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -658,8 +665,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/danielturato/WorldBankData/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="385">
+          <caret line="114" column="38" lean-forward="true" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
