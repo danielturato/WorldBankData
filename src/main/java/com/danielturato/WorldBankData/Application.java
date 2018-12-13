@@ -94,4 +94,13 @@ public class Application {
         return countries;
     }
 
+    private String getStringInput(Scanner scanner, String message) {
+        System.out.println(message);
+        while (!scanner.hasNextLine()) {
+            System.out.println("That's not a correct input. Try again!");
+            scanner.next();
+        }
+        return scanner.nextLine();
+    }
+
 }
